@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlt6b18oealrc"]
+
+[ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_302ti"]
+
+[node name="Main" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_302ti")
+data = {
+"cells": PackedInt32Array(0, 0, 0)
+}

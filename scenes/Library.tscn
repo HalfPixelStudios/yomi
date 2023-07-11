@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3lh52dk0sigy"]
+
+[ext_resource type="Texture2D" uid="uid://dano25x567xoc" path="res://sprites/map/floor_grey_1.png" id="1_g48tv"]
+[ext_resource type="Texture2D" uid="uid://4p1q1yf1cwg7" path="res://sprites/map/wall_brown_1.png" id="2_aylj1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_irhmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq7ni"]
+albedo_texture = ExtResource("1_g48tv")
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_avh47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8733v"]
+albedo_texture = ExtResource("2_aylj1")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[node name="Library" type="Node3D"]
+
+[node name="FloorGrey01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_irhmk")
+surface_material_override/0 = SubResource("StandardMaterial3D_qq7ni")
+
+[node name="WallBrown01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_avh47")
+surface_material_override/0 = SubResource("StandardMaterial3D_8733v")
