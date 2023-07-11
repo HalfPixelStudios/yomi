@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvaor884qy256"]
+
+[ext_resource type="Script" path="res://scripts/ui/Weapon.gd" id="1_mih3f"]
+[ext_resource type="Texture2D" uid="uid://bljefhp82na7y" path="res://sprites/weapon/knife.png" id="1_u6dr4"]
+
+[sub_resource type="Animation" id="Animation_f7joq"]
+resource_name = "Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponHandle/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponHandle/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.761466, -1.20082, -0.761466]
+}
+
+[sub_resource type="Animation" id="Animation_avurd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponHandle/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponHandle/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.761466]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwvrn"]
+_data = {
+"Attack": SubResource("Animation_f7joq"),
+"RESET": SubResource("Animation_avurd")
+}
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Weapon" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_mih3f")
+
+[node name="WeaponHandle" type="Control" parent="Weapon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite" type="TextureRect" parent="Weapon/WeaponHandle"]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+rotation = -0.761466
+scale = Vector2(9.6, 9.6)
+texture = ExtResource("1_u6dr4")
+
+[node name="Animation" type="AnimationPlayer" parent="Weapon"]
+libraries = {
+"": SubResource("AnimationLibrary_uwvrn")
+}

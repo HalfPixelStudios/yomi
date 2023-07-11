@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
 @export var movement_speed: float = 5.0
-@onready var look_sensitivity: float = 0.01
+@export var look_sensitivity: float = 0.01
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
+
+@onready var signal_bus = get_node("/root/SignalBus")
 
 # TODO move this to shared constants file
 const gravity: float = 8.0
@@ -28,6 +30,10 @@ func _physics_process(delta):
 		velocity.z = 0.0
 
 	move_and_slide()
+
+	# test attack
+	if Input.is_action_just_pressed("use_item"):
+		signal_bus.player_attack.emit()
 
 
 
