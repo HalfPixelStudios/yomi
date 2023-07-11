@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlt6b18oealrc"]
+
+[ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
+[ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
+
+[node name="Main" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_uai0a")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 65535, 0, 1, 1, 65535, 0, 1, 65533, 0, 1, 65534, 0, 1, 0, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 65535, 65535, 1, 65535, 65534, 1, 65535, 65533, 1, 65535, 65532, 1, 65535, 65531, 1, 0, 65531, 1, 1, 65531, 1, 2, 65531, 1, 3, 65531, 1, 4, 65531, 1, 5, 65531, 1, 65535, 1, 1, 65535, 2, 1, 65535, 3, 1, 0, 3, 1, 1, 3, 1, 2, 3, 1, 3, 3, 1, 4, 3, 1, 5, 3, 1, 6, 3, 1, 6, 65535, 0, 6, 0, 0, 6, 1, 0, 6, 2, 0, 6, 65533, 0, 6, 65531, 1, 6, 65534, 0, 6, 65532, 0, 5, 2, 0, 5, 65532, 0, 4, 65532, 0, 3, 65532, 0, 2, 65532, 0, 1, 65532, 0, 2, 1, 0, 1, 1, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 5, 0, 0, 5, 65535, 0, 4, 65535, 0, 4, 65534, 0, 4, 0, 0, 4, 65533, 0, 5, 65533, 0, 5, 65534, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 1, 0, 0, 2, 0, 7, 65531, 1, 7, 65532, 1, 7, 0, 1, 7, 1, 1, 7, 2, 1, 7, 3, 1, 7, 65533, 1, 7, 65534, 1, 7, 65535, 1)
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.82379, 0.566895, 0, -0.566895, 0.82379, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_cd71d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91008, 1.03614, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
