@@ -27,7 +27,7 @@ shape = SubResource("CapsuleShape3D_tq0lm")
 script = ExtResource("2_yleqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackBox"]
-transform = Transform3D(1, -0.000249795, -0.000248639, 0.000249625, 1, -0.000682321, 0.00024881, 0.000682259, 1, 0, 0, -1)
+transform = Transform3D(1.5, -0.000374693, -0.000372959, 0.000374438, 1.5, -0.00102348, 0.000373214, 0.00102339, 1.5, 0, 0, -1.5)
 shape = SubResource("BoxShape3D_p2cd4")
 
 [node name="CameraPivot" type="Node3D" parent="."]

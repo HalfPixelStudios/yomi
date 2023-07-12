@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://ypbtaee61i8x"]
+[gd_scene load_steps=8 format=3 uid="uid://ypbtaee61i8x"]
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
 [ext_resource type="Texture2D" uid="uid://j1uu1fvr1b10" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
 [ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_r6nay"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
+[ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/levels/HealthBar.tscn" id="6_vpdyl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
 height = 1.5
 
 [node name="Enemy" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14002, 0.870212, 0)
 script = ExtResource("1_kpe5j")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+offset = Vector2(-3.425, 0)
 billboard = 1
 double_sided = false
 texture_filter = 0
@@ -33,6 +34,5 @@ shape = SubResource("CapsuleShape3D_qps4j")
 script = ExtResource("5_ct3pp")
 max_health = 100
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="HealthBar" parent="." instance=ExtResource("6_vpdyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
