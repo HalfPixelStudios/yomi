@@ -1,4 +1,4 @@
-extends Control
+class_name WeaponAnim extends Control
 
 @onready var anim = $Animation
 
