@@ -35,5 +35,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("use_item"):
 		signal_bus.player_attack.emit()
 
+	# switch weapon
+
 
 

@@ -1,6 +1,10 @@
 class_name Health extends Node
 
+# Runs whenever value of health has changed
 signal on_change(old_value: int, new_value: int)
+
+# Runs when health reaches zero
+signal on_death()
 
 @export var max_health: int
 var _cur_health: int
@@ -17,6 +21,8 @@ func add(health: int) -> int:
 	_cur_health = clamp(_cur_health + health, 0, max_health)
 	if old_health != _cur_health:
 		on_change.emit(old_health, _cur_health)
+	if _cur_health <= 0:
+		on_death.emit()
 	return _cur_health
 
 func take(health: int) -> int:
