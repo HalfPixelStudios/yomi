@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ypbtaee61i8x"]
+
+[ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
+[ext_resource type="Texture2D" uid="uid://j1uu1fvr1b10" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
+[ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_r6nay"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
+height = 1.5
+
+[node name="Enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14002, 0.870212, 0)
+script = ExtResource("1_kpe5j")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+billboard = 1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_005y0")
+
+[node name="DamageFlasher" type="Node3D" parent="Sprite3D"]
+script = ExtResource("3_r6nay")
+
+[node name="HitBox" type="Area3D" parent="."]
+script = ExtResource("4_m2tev")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_qps4j")

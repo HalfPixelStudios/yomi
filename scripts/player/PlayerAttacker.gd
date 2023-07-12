@@ -9,3 +9,4 @@ func _player_attack():
 	for area in get_overlapping_areas():
 		if area is EnemyHitBox:
 			print("hit enemy")
+			area.hit()
