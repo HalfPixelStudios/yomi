@@ -5,13 +5,15 @@ extends Node3D
 @export var flash_speed: float = 0.2
 @export var flash_color: Color = Color.RED
 
+var original_color: Color
+
 func _ready():
 	assert(get_parent() is Sprite3D)
-	owner._hit.connect(flash)
+	owner.on_hit.connect(flash)
+	original_color = get_parent().modulate
 
 func flash():
 	var tween = create_tween()
-	var original_color = get_parent().modulate
 	tween.tween_property(get_parent(), "modulate", flash_color, flash_speed)
 	tween.tween_property(get_parent(), "modulate", original_color, flash_speed)
 

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_r6nay"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
-[ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/levels/HealthBar.tscn" id="6_vpdyl"]
+[ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/HealthBar.tscn" id="6_vpdyl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
 height = 1.5
@@ -34,5 +34,6 @@ shape = SubResource("CapsuleShape3D_qps4j")
 script = ExtResource("5_ct3pp")
 max_health = 100
 
-[node name="HealthBar" parent="." instance=ExtResource("6_vpdyl")]
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_ref") instance=ExtResource("6_vpdyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+health_ref = NodePath("../Health")

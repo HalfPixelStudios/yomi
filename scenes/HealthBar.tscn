@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4s7hpcqplxat"]
+
+[ext_resource type="Script" path="res://scripts/ui/HealthBar.gd" id="1_4rexu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fasl4"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp03s"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_fasl4")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_6mj8w"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_tp03s")
+size = Vector2(1, 0.1)
+
+[node name="HealthBar" type="Node3D"]
+script = ExtResource("1_4rexu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_6mj8w")
+skeleton = NodePath("../Viewport")
+
+[node name="Viewport" type="SubViewport" parent="."]
+handle_input_locally = false
+
+[node name="ProgressBar" type="ProgressBar" parent="Viewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+show_percentage = false
