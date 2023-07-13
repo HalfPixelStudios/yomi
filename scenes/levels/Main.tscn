@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlt6b18oealrc"]
+[gd_scene load_steps=5 format=3 uid="uid://dlt6b18oealrc"]
 
 [ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
 [ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
 [ext_resource type="PackedScene" uid="uid://bvaor884qy256" path="res://scenes/ui/HUD.tscn" id="3_ld2c7"]
 [ext_resource type="PackedScene" uid="uid://ypbtaee61i8x" path="res://scenes/Enemy.tscn" id="4_hk0sy"]
-[ext_resource type="PackedScene" uid="uid://dwsw7ihjyiwbu" path="res://scenes/projectiles/EmeraldStaffBullet.tscn" id="9_qy151"]
 
 [node name="Main" type="Node3D"]
 
@@ -30,5 +29,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01081, 1.01704, -2.61722)
 follow_viewport_enabled = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_ld2c7")]
-
-[node name="EmeraldStaffBullet" parent="." instance=ExtResource("9_qy151")]

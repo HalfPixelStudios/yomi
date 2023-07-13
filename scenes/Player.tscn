@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=8 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_xvocq"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
+[ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rl12"]
 
@@ -37,3 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.762205, 0)
 
 [node name="HeadBobber" type="Node3D" parent="CameraPivot"]
 script = ExtResource("2_in2wx")
+
+[node name="HeadTilt" type="Node3D" parent="CameraPivot"]
+script = ExtResource("4_q1osj")
