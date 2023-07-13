@@ -21,8 +21,15 @@ func switch_weapon(index):
 
 # TODO maybe move weapon switching somewhere else
 func _physics_process(delta):
+	# TODO this code could be less repetitive
 	if Input.is_action_just_pressed("hotbar_1"):
 		switch_weapon(0)
 	elif Input.is_action_just_pressed("hotbar_2"):
 		switch_weapon(1)
+	elif Input.is_action_just_pressed("hotbar_3"):
+		switch_weapon(2)
+	elif Input.is_action_just_pressed("hotbar_4"):
+		switch_weapon(3)
+	elif Input.is_action_just_pressed("hotbar_5"):
+		switch_weapon(4)
 

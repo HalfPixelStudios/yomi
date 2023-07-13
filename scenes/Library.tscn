@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3lh52dk0sigy"]
 
-[ext_resource type="Texture2D" uid="uid://dano25x567xoc" path="res://sprites/map/floor_grey_1.png" id="1_g48tv"]
-[ext_resource type="Texture2D" uid="uid://4p1q1yf1cwg7" path="res://sprites/map/wall_brown_1.png" id="2_aylj1"]
+[ext_resource type="Texture2D" uid="uid://cgx35lcfbuhob" path="res://sprites/map/floor_grey_1.png" id="1_g48tv"]
+[ext_resource type="Texture2D" uid="uid://o0krpmf1abhg" path="res://sprites/map/wall_brown_1.png" id="2_aylj1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_irhmk"]
 

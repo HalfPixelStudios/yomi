@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://comnmyyrek17u"]
+[gd_scene load_steps=6 format=3 uid="uid://b8gopg53gj3pm"]
 
-[ext_resource type="Script" path="res://scripts/ui/WeaponAnim.gd" id="1_syomb"]
-[ext_resource type="Texture2D" uid="uid://nwhppydof7vi" path="res://sprites/weapon/demon_blade.png" id="2_iuu3k"]
+[ext_resource type="Script" path="res://scripts/ui/WeaponAnim.gd" id="1_y56ik"]
+[ext_resource type="Texture2D" uid="uid://ci06cj5wd3t2i" path="res://sprites/weapon/emerald_stff.png" id="2_6mfwn"]
 
 [sub_resource type="Animation" id="Animation_f7joq"]
 resource_name = "Attack"
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_syomb")
+script = ExtResource("1_y56ik")
 
 [node name="WeaponHandle" type="Control" parent="."]
 layout_mode = 1
@@ -91,7 +91,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 rotation = -0.761466
 scale = Vector2(9.6, 9.6)
-texture = ExtResource("2_iuu3k")
+texture = ExtResource("2_6mfwn")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

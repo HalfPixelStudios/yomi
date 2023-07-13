@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ypbtaee61i8x"]
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
-[ext_resource type="Texture2D" uid="uid://j1uu1fvr1b10" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
+[ext_resource type="Texture2D" uid="uid://dp2iged4hmter" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
 [ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_r6nay"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
