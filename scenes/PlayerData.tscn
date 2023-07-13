@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjylq80fi5b7r"]
+
+[ext_resource type="Script" path="res://scripts/global/WeaponManager.gd" id="1_7144d"]
+[ext_resource type="Resource" uid="uid://852tmj5stoni" path="res://resources/weapons/Dagger/Dagger.tres" id="2_iriko"]
+[ext_resource type="Resource" uid="uid://b55qjxehr2was" path="res://resources/weapons/DemonBlade/DemonBlade.tres" id="3_etry3"]
+[ext_resource type="Resource" uid="uid://pfcay8mmol6d" path="res://resources/weapons/EmeraldStaff/EmeraldStaff.tres" id="4_stdfi"]
+
+[node name="PlayerData" type="Node"]
+
+[node name="WeaponManager" type="Node" parent="."]
+script = ExtResource("1_7144d")
+weapons = Array[Resource("res://scripts/resources/Weapon.gd")]([ExtResource("2_iriko"), ExtResource("3_etry3"), ExtResource("4_stdfi")])

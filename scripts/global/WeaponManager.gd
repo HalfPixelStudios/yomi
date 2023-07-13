@@ -1,4 +1,4 @@
-extends Node
+class_name WeaponManager extends Node
 
 @export var weapons: Array[Weapon]
 

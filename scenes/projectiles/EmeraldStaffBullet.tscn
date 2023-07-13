@@ -17,9 +17,10 @@ center_offset = Vector3(-0.25, 0.25, 0)
 [sub_resource type="SphereShape3D" id="SphereShape3D_pac7f"]
 radius = 0.25
 
-[node name="EmeraldStaffBullet" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+[node name="EmeraldStaffBullet" type="RigidBody3D"]
+gravity_scale = 0.0
 script = ExtResource("1_kgkik")
+speed = 10.0
 
 [node name="Sprite" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_pidsq")

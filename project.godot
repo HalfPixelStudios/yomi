@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://scripts/SignalBus.gd"
+PlayerData="*res://scenes/PlayerData.tscn"
+Containers="*res://scenes/Containers.tscn"
 
 [input]
 

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=4 format=3 uid="uid://pfcay8mmol6d"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=5 format=3 uid="uid://pfcay8mmol6d"]
 
 [ext_resource type="PackedScene" uid="uid://b8gopg53gj3pm" path="res://resources/weapons/EmeraldStaff/Anim.tscn" id="1_7oonp"]
 [ext_resource type="Script" path="res://scripts/resources/RangedWeapon.gd" id="1_w6i3g"]
 [ext_resource type="Texture2D" uid="uid://ci06cj5wd3t2i" path="res://sprites/weapon/emerald_stff.png" id="2_vogo3"]
+[ext_resource type="PackedScene" uid="uid://dwsw7ihjyiwbu" path="res://scenes/projectiles/EmeraldStaffBullet.tscn" id="3_whmgo"]
 
 [resource]
 script = ExtResource("1_w6i3g")
+projectile = ExtResource("3_whmgo")
 name = "EmeraldStaff"
 inventory_sprite = ExtResource("2_vogo3")
 hud_anim = ExtResource("1_7oonp")
