@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfdy64p7kn1pb"]
+
+[ext_resource type="Script" path="res://scripts/ui/WeaponAnim.gd" id="1_xo0tk"]
+[ext_resource type="Texture2D" uid="uid://deye24dnt7qb4" path="res://sprites/weapon/longbow.png" id="2_a6ewd"]
+[ext_resource type="Texture2D" uid="uid://bax1bpcciv1ac" path="res://sprites/projectiles/arrow_01.png" id="3_8neiv"]
+
+[sub_resource type="Animation" id="Animation_mx5em"]
+resource_name = "AttackStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(172, -61.2676), Vector2(220, -49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hnt6g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(172, -61.2676)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5ex77"]
+resource_name = "Attack"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djr64"]
+_data = {
+"Attack": SubResource("Animation_5ex77"),
+"AttackStart": SubResource("Animation_mx5em"),
+"RESET": SubResource("Animation_hnt6g")
+}
+
+[node name="WeaponAnim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xo0tk")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../WeaponHandle")
+libraries = {
+"": SubResource("AnimationLibrary_djr64")
+}
+
+[node name="WeaponHandle" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="WeaponSprite" type="TextureRect" parent="WeaponHandle"]
+layout_mode = 1
+offset_left = 138.0
+offset_top = -277.268
+offset_right = 170.0
+offset_bottom = -245.268
+rotation = -0.261799
+scale = Vector2(9.6, 9.6)
+texture = ExtResource("2_a6ewd")
+
+[node name="ArrowSprite" type="TextureRect" parent="WeaponHandle"]
+layout_mode = 1
+offset_left = 172.0
+offset_top = -61.2676
+offset_right = 204.0
+offset_bottom = -29.2676
+rotation = -1.309
+scale = Vector2(9.6, 9.6)
+texture = ExtResource("3_8neiv")

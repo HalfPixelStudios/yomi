@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=5 format=3 uid="uid://dn1e7aqtj6xjx"]
+
+[ext_resource type="PackedScene" uid="uid://dfdy64p7kn1pb" path="res://resources/weapons/Longbow/Anim.tscn" id="1_a68x5"]
+[ext_resource type="Script" path="res://scripts/resources/RangedWeapon.gd" id="1_cwyik"]
+[ext_resource type="Texture2D" uid="uid://deye24dnt7qb4" path="res://sprites/weapon/longbow.png" id="1_kvoxq"]
+[ext_resource type="PackedScene" uid="uid://cld52ayu7gelu" path="res://scenes/projectiles/Arrow.tscn" id="3_affud"]
+
+[resource]
+script = ExtResource("1_cwyik")
+projectile = ExtResource("3_affud")
+name = "Longbow"
+inventory_sprite = ExtResource("1_kvoxq")
+hud_anim = ExtResource("1_a68x5")
