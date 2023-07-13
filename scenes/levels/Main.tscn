@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlt6b18oealrc"]
+[gd_scene load_steps=10 format=3 uid="uid://dlt6b18oealrc"]
 
 [ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
 [ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://852tmj5stoni" path="res://resources/weapons/Dagger/Dagger.tres" id="6_r4bsr"]
 [ext_resource type="Resource" uid="uid://b55qjxehr2was" path="res://resources/weapons/DemonBlade/DemonBlade.tres" id="7_2f0fp"]
 [ext_resource type="Resource" uid="uid://pfcay8mmol6d" path="res://resources/weapons/EmeraldStaff/EmeraldStaff.tres" id="8_7ehds"]
+[ext_resource type="PackedScene" uid="uid://dwsw7ihjyiwbu" path="res://scenes/projectiles/EmeraldStaffBullet.tscn" id="9_qy151"]
 
 [node name="Main" type="Node3D"]
 
@@ -39,3 +40,5 @@ follow_viewport_enabled = true
 [node name="WeaponManager" type="Node" parent="PlayerData"]
 script = ExtResource("5_pyd0j")
 weapons = Array[Resource("res://scripts/resources/Weapon.gd")]([ExtResource("6_r4bsr"), ExtResource("7_2f0fp"), ExtResource("8_7ehds")])
+
+[node name="EmeraldStaffBullet" parent="." instance=ExtResource("9_qy151")]

@@ -14,7 +14,7 @@ height = 1.5
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_xvocq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Sprite" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("CapsuleMesh_5rl12")
 
