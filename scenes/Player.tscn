@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=9 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_xvocq"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
 [ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
+[ext_resource type="Script" path="res://scripts/player/PlayerAbility.gd" id="5_kaw3u"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rl12"]
 
@@ -41,3 +42,6 @@ script = ExtResource("2_in2wx")
 
 [node name="HeadTilt" type="Node3D" parent="CameraPivot"]
 script = ExtResource("4_q1osj")
+
+[node name="DashAbility" type="Node3D" parent="."]
+script = ExtResource("5_kaw3u")
