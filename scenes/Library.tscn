@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3lh52dk0sigy"]
+[gd_scene load_steps=11 format=3 uid="uid://d3lh52dk0sigy"]
 
 [ext_resource type="Texture2D" uid="uid://cgx35lcfbuhob" path="res://sprites/map/floor_grey_1.png" id="1_g48tv"]
 [ext_resource type="Texture2D" uid="uid://o0krpmf1abhg" path="res://sprites/map/wall_brown_1.png" id="2_aylj1"]
+[ext_resource type="Texture2D" uid="uid://b4agw750mvpue" path="res://sprites/map/torch_1.png" id="3_h6tqs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_irhmk"]
 
@@ -18,6 +19,14 @@ texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh3n5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3iik"]
+transparency = 1
+albedo_texture = ExtResource("3_h6tqs")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0jfxl"]
+material = SubResource("StandardMaterial3D_c3iik")
+
 [node name="Library" type="Node3D"]
 
 [node name="FloorGrey01" type="MeshInstance3D" parent="."]
@@ -27,6 +36,7 @@ mesh = SubResource("PlaneMesh_irhmk")
 surface_material_override/0 = SubResource("StandardMaterial3D_qq7ni")
 
 [node name="WallBrown01" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_avh47")
 surface_material_override/0 = SubResource("StandardMaterial3D_8733v")
 
@@ -36,3 +46,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallBrown01/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 shape = SubResource("BoxShape3D_wh3n5")
+
+[node name="Torch01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, -0.4)
+mesh = SubResource("QuadMesh_0jfxl")
