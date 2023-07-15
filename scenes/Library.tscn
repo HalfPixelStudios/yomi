@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3lh52dk0sigy"]
+[gd_scene load_steps=8 format=3 uid="uid://d3lh52dk0sigy"]
 
 [ext_resource type="Texture2D" uid="uid://cgx35lcfbuhob" path="res://sprites/map/floor_grey_1.png" id="1_g48tv"]
 [ext_resource type="Texture2D" uid="uid://o0krpmf1abhg" path="res://sprites/map/wall_brown_1.png" id="2_aylj1"]
@@ -16,13 +16,23 @@ albedo_texture = ExtResource("2_aylj1")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh3n5"]
+
 [node name="Library" type="Node3D"]
 
 [node name="FloorGrey01" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
+visible = false
 mesh = SubResource("PlaneMesh_irhmk")
 surface_material_override/0 = SubResource("StandardMaterial3D_qq7ni")
 
 [node name="WallBrown01" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_avh47")
 surface_material_override/0 = SubResource("StandardMaterial3D_8733v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBrown01"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBrown01/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_wh3n5")

@@ -62,7 +62,6 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 
 
 "
-graph_offset = Vector2(2039.1, 53.8348)
 nodes/vertex/0/position = Vector2(2020, 200)
 nodes/fragment/0/position = Vector2(2880, 200)
 nodes/fragment/2/node = SubResource("VisualShaderNodeFloatParameter_dabmq")
