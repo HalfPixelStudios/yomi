@@ -20,7 +20,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8vw2f"]
-radius = 2.0
+radius = 1.5
 
 [node name="Main" type="Node3D"]
 
@@ -70,6 +70,7 @@ texture = ExtResource("5_shemq")
 
 [node name="Interactable" type="Area3D" parent="Wizard"]
 script = ExtResource("6_olbf6")
+dialogue_file = "res://dialogue/wizard.dialogue"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wizard/Interactable"]
 shape = SubResource("SphereShape3D_8vw2f")
@@ -77,6 +78,5 @@ shape = SubResource("SphereShape3D_8vw2f")
 [node name="Indicator" type="Sprite3D" parent="Wizard/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
-shaded = true
 texture_filter = 0
 texture = ExtResource("7_g1q17")
