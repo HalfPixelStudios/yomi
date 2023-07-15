@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlt6b18oealrc"]
+[gd_scene load_steps=10 format=3 uid="uid://dlt6b18oealrc"]
 
 [ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
 [ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
 [ext_resource type="PackedScene" uid="uid://bvaor884qy256" path="res://scenes/ui/HUD.tscn" id="3_ld2c7"]
 [ext_resource type="PackedScene" uid="uid://ypbtaee61i8x" path="res://scenes/Enemy.tscn" id="4_hk0sy"]
 [ext_resource type="Texture2D" uid="uid://ukuirf5pecxk" path="res://sprites/npc/wizard.png" id="5_shemq"]
+[ext_resource type="Script" path="res://scripts/Interactable.gd" id="6_olbf6"]
+[ext_resource type="Texture2D" uid="uid://ecwr2weggrhr" path="res://sprites/ui/spell_icon.png" id="7_g1q17"]
 
 [sub_resource type="Environment" id="Environment_ets2c"]
 tonemap_mode = 2
@@ -57,7 +59,7 @@ omni_range = 4.0
 omni_attenuation = 1.68179
 
 [node name="Wizard" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.90342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30422, 0.697044, -2.70439)
 
 [node name="Sprite3D" type="Sprite3D" parent="Wizard"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -66,7 +68,15 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("5_shemq")
 
-[node name="InteractionHitBox" type="Area3D" parent="Wizard"]
+[node name="Interactable" type="Area3D" parent="Wizard"]
+script = ExtResource("6_olbf6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wizard/InteractionHitBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wizard/Interactable"]
 shape = SubResource("SphereShape3D_8vw2f")
+
+[node name="Indicator" type="Sprite3D" parent="Wizard/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_g1q17")

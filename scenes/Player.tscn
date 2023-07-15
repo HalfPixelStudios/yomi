@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=12 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_xvocq"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
 [ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAbility.gd" id="5_kaw3u"]
+[ext_resource type="Script" path="res://scripts/Interactor.gd" id="6_tfag8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rl12"]
 
@@ -14,6 +15,9 @@ height = 1.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2cd4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3sxxh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lfcmb"]
+radius = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_xvocq")
@@ -52,3 +56,9 @@ script = ExtResource("5_kaw3u")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3sxxh")
+
+[node name="Interactor" type="Area3D" parent="."]
+script = ExtResource("6_tfag8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor"]
+shape = SubResource("SphereShape3D_lfcmb")
