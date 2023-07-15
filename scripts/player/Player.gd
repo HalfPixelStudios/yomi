@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var movement_speed: float = 5.0
 @export var look_sensitivity: float = 0.01
@@ -13,6 +13,7 @@ const gravity: float = 8.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	add_to_group("player")
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:

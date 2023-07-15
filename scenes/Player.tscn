@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://3q770b1kuxp8"]
 
-[ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_xvocq"]
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_x2j2g"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
 [ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
@@ -20,7 +20,7 @@ height = 1.5
 radius = 1.0
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_xvocq")
+script = ExtResource("1_x2j2g")
 
 [node name="Sprite" type="MeshInstance3D" parent="."]
 visible = false
