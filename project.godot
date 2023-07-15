@@ -83,6 +83,14 @@ ability={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="default"
+3d_physics/layer_2="environment"
+3d_physics/layer_3="player"
+3d_physics/layer_4="enemy"
+3d_physics/layer_6="projectile"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

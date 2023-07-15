@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwsw7ihjyiwbu"]
+[gd_scene load_steps=8 format=3 uid="uid://dwsw7ihjyiwbu"]
 
 [ext_resource type="Script" path="res://scripts/projectile/Projectile.gd" id="1_kgkik"]
 [ext_resource type="Texture2D" uid="uid://x15jcalskdm5" path="res://sprites/projectiles/emerald_staff_bullet.png" id="2_epwk1"]
 [ext_resource type="Script" path="res://scripts/projectile/ProjectileHitBox.gd" id="3_bxmgh"]
+[ext_resource type="Script" path="res://scripts/projectile/ProjectileLifetime.gd" id="4_w2vvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdkja"]
 transparency = 1
@@ -30,3 +31,6 @@ script = ExtResource("3_bxmgh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("SphereShape3D_pac7f")
+
+[node name="Lifetime" type="Node3D" parent="."]
+script = ExtResource("4_w2vvr")
