@@ -6,17 +6,14 @@ class_name EnemyAI extends Node
 
 @onready var nav: NavigationAgent3D = $"../NavigationAgent3D"
 
+@onready var globals = get_node("/root/Globals")
+
 # Can be null
-var target: Node
+var target: Node3D
 
 func _ready():
 	# TODO replace with proper aggro system
-
-	var player = get_node("/root").get_tree().get_nodes_in_group("player")
-	if len(player) == 1:
-		target = player[0]	
-	else:
-		print("was not able to find player")
+	target = globals.player_ref
 
 func _physics_process(delta):
 

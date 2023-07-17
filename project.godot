@@ -21,6 +21,7 @@ SignalBus="*res://scripts/SignalBus.gd"
 PlayerData="*res://scenes/PlayerData.tscn"
 Containers="*res://scenes/Containers.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Globals="*res://scripts/global/Globals.gd"
 
 [editor_plugins]
 

@@ -19,7 +19,7 @@ height = 1.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_lfcmb"]
 radius = 1.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_x2j2g")
 
 [node name="Sprite" type="MeshInstance3D" parent="."]
@@ -34,6 +34,8 @@ collision_mask = 11
 shape = SubResource("CapsuleShape3D_tq0lm")
 
 [node name="AttackBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("2_yleqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackBox"]

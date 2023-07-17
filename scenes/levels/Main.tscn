@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlt6b18oealrc"]
+[gd_scene load_steps=10 format=3 uid="uid://dlt6b18oealrc"]
 
 [ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
 [ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ypbtaee61i8x" path="res://scenes/Enemy.tscn" id="4_hk0sy"]
 [ext_resource type="Texture2D" uid="uid://ukuirf5pecxk" path="res://sprites/npc/wizard.png" id="5_shemq"]
 [ext_resource type="PackedScene" uid="uid://cwwk6iglfoxss" path="res://scenes/Interactable.tscn" id="6_y8fje"]
+[ext_resource type="PackedScene" uid="uid://bl8f27ly0yump" path="res://scenes/SoulEater.tscn" id="7_4st2b"]
 
 [sub_resource type="Environment" id="Environment_ets2c"]
 tonemap_mode = 2
@@ -58,6 +59,14 @@ shadow_enabled = true
 omni_range = 4.0
 omni_attenuation = 1.68179
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22454, 1.5341, 2.7153)
+light_color = Color(0.819608, 0.45098, 0.258824, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 4.0
+omni_attenuation = 1.68179
+
 [node name="Wizard" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30422, 0.697044, -2.70439)
 
@@ -73,3 +82,5 @@ dialogue_file = "res://dialogue/wizard.dialogue"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_4lvli")
+
+[node name="SoulEater" parent="." instance=ExtResource("7_4st2b")]
