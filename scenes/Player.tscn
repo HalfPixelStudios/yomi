@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=16 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_x2j2g"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
+[ext_resource type="Shader" path="res://shaders/Invert.gdshader" id="3_5cfo2"]
+[ext_resource type="Shader" path="res://shaders/ChromAbbr.gdshader" id="4_pwrct"]
 [ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAbility.gd" id="5_kaw3u"]
 [ext_resource type="Script" path="res://scripts/Interactor.gd" id="6_tfag8"]
@@ -13,6 +15,13 @@
 height = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2cd4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0olv"]
+shader = ExtResource("3_5cfo2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_675ku"]
+shader = ExtResource("4_pwrct")
+shader_parameter/shift = 0.05
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3sxxh"]
 
@@ -46,6 +55,25 @@ shape = SubResource("BoxShape3D_p2cd4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.762205, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraPivot/Camera"]
+
+[node name="Invert" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_j0olv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CA" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
+material = SubResource("ShaderMaterial_675ku")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HeadBobber" type="Node3D" parent="CameraPivot"]
 script = ExtResource("2_in2wx")
