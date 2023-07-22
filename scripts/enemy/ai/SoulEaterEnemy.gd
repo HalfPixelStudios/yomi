@@ -1,4 +1,4 @@
-class_name SoulEaterAI extends Node
+class_name SoulEaterEnemy extends Enemy
 
 # Teleports behind player
 
@@ -30,10 +30,10 @@ func _physics_process(delta):
 	pass
 
 func _teleport_timer_timeout():
-	print("timeout", owner.global_position.distance_to(target.global_position))
-	if owner.global_position.distance_to(target.global_position) > seperation:
+	print("timeout", global_position.distance_to(target.global_position))
+	if global_position.distance_to(target.global_position) > seperation:
 		print("should teleport")
 
 		# set position to just behind player facing direction
 
-		owner.global_position = target.global_position + (-1 * target.camera_dir()).normalized() * teleport_offset
+		global_position = target.global_position + (-1 * target.camera_dir()).normalized() * teleport_offset

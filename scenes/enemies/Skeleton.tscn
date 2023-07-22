@@ -1,76 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://ypbtaee61i8x"]
+[gd_scene load_steps=6 format=3 uid="uid://b4o04oiytpp8e"]
 
-[ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
+[ext_resource type="PackedScene" uid="uid://ckf27hue482nj" path="res://scenes/enemies/Enemy.tscn" id="1_4r3y4"]
 [ext_resource type="Texture2D" uid="uid://dp2iged4hmter" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
-[ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_r6nay"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
-[ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
-[ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/HealthBar.tscn" id="6_vpdyl"]
-[ext_resource type="Script" path="res://scripts/enemy/ai/SkeletonAI.gd" id="7_72wxt"]
-[ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="8_f7scy"]
-[ext_resource type="Script" path="res://scripts/enemy/DropTableItem.gd" id="9_lpko6"]
-[ext_resource type="Resource" uid="uid://cfo31uu2tix1s" path="res://resources/items/GoldCoin.tres" id="10_5id34"]
+[ext_resource type="Script" path="res://scripts/enemy/ai/SkeletonEnemy.gd" id="2_mebyt"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyAttacker.gd" id="11_iry4q"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
-height = 1.5
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk5e5"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nw2gg"]
+[node name="Enemy" instance=ExtResource("1_4r3y4")]
+script = ExtResource("2_mebyt")
+speed = 10.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fpeh1"]
-
-[node name="Skeleton" type="CharacterBody3D"]
-script = ExtResource("1_kpe5j")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-offset = Vector2(-3.425, 0)
-billboard = 1
-shaded = true
-double_sided = false
-texture_filter = 0
+[node name="Sprite3D" parent="." index="3"]
+offset = Vector2(-3.5, 0)
 texture = ExtResource("2_005y0")
 
-[node name="DamageFlasher" type="Node3D" parent="Sprite3D"]
-script = ExtResource("3_r6nay")
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="6"]
 
-[node name="HitBox" type="Area3D" parent="."]
-collision_layer = 8
-collision_mask = 7
-script = ExtResource("4_m2tev")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-shape = SubResource("CapsuleShape3D_qps4j")
-
-[node name="Health" type="Node3D" parent="."]
-script = ExtResource("5_ct3pp")
-max_health = 100
-
-[node name="HealthBar" parent="." node_paths=PackedStringArray("health_ref") instance=ExtResource("6_vpdyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-health_ref = NodePath("../Health")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-
-[node name="AI" type="Node" parent="."]
-script = ExtResource("7_72wxt")
-
-[node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_nw2gg")
-
-[node name="DropTable" type="Node" parent="."]
-script = ExtResource("8_f7scy")
-
-[node name="DropItem" type="Node" parent="DropTable"]
-script = ExtResource("9_lpko6")
-item = ExtResource("10_5id34")
-chance = 1.0
-
-[node name="AttackBox" type="Area3D" parent="."]
+[node name="AttackBox" type="Area3D" parent="." index="7"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("11_iry4q")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackBox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-shape = SubResource("BoxShape3D_fpeh1")
+shape = SubResource("BoxShape3D_jk5e5")

@@ -3,6 +3,7 @@ class_name Enemy extends CharacterBody3D
 # Used to tie all components together in enemy
 # Can be thought of an enemy scene local bus
 
+# Required components
 @onready var health: Health = $Health
 @onready var drop_table: DropTable = $DropTable
 
@@ -18,9 +19,20 @@ func _ready():
 	add_to_group("enemy")
 
 func _on_hit():
+
+	handle_hit()
+
 	health.take(100)
 
 func _on_death():
+
+	handle_death()
+
+	_spawn_drops()
+
+	queue_free()
+
+func _spawn_drops():
 	var drops = drop_table.get_drops()
 
 	# Spawn drops
@@ -31,4 +43,11 @@ func _on_death():
 		dropped_item_container.add_child(inst)
 		inst.setup(drop)
 
-	queue_free()
+# Virtual Methods
+
+func handle_hit():
+	pass
+
+func handle_death():
+	pass
+

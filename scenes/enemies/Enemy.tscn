@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckf27hue482nj"]
+
+[ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_bava0"]
+[ext_resource type="Script" path="res://scripts/anim/DamageFlasher.gd" id="3_p1xr5"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_hhtg7"]
+[ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_xw46l"]
+[ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/HealthBar.tscn" id="6_l17ny"]
+[ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="8_eqirp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nw2gg"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_bava0")
+
+[node name="Health" type="Node3D" parent="."]
+script = ExtResource("5_xw46l")
+max_health = 100
+
+[node name="DropTable" type="Node" parent="."]
+script = ExtResource("8_eqirp")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_ref") instance=ExtResource("6_l17ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+health_ref = NodePath("../Health")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+billboard = 1
+shaded = true
+double_sided = false
+texture_filter = 0
+
+[node name="DamageFlasher" type="Node3D" parent="Sprite3D"]
+script = ExtResource("3_p1xr5")
+
+[node name="HitBox" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("4_hhtg7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_qps4j")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_nw2gg")

@@ -1,11 +1,11 @@
-class_name EnemyAI extends Node
+class_name SkeletonEnemy extends Enemy
 
 # Handler for enemy behavior
 
 @export var speed: float = 10
 
-@onready var nav: NavigationAgent3D = $"../NavigationAgent3D"
-@onready var attack_box: EnemyAttacker = $"../AttackBox"
+@onready var nav: NavigationAgent3D = $NavigationAgent3D
+@onready var attack_box: EnemyAttacker = $AttackBox
 @onready var globals = get_node("/root/Globals")
 
 # Can be null
@@ -26,13 +26,13 @@ func _physics_process(delta):
 
 	nav.target_position = target.global_position
 
-	var facing = owner.global_position.direction_to(nav.get_next_path_position()).normalized()
+	var facing = global_position.direction_to(nav.get_next_path_position()).normalized()
 	# TODO temp solution to throw away y component
 	facing.y = 0
 
-	owner.velocity = owner.velocity.move_toward(facing * speed, delta)
-	nav.set_velocity(owner.velocity)
-	owner.move_and_slide()
+	velocity = velocity.move_toward(facing * speed, delta)
+	nav.set_velocity(velocity)
+	move_and_slide()
 
 func _attack_box_area_entered(area):
 	if area is PlayerHitBox:
