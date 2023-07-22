@@ -5,8 +5,9 @@ func get_drops():
 	var drops = []
 	for drop in self.get_children():
 		var chance = drop.chance * 100
-		var roll = randi() & 100
-		if roll < chance:
+		var roll = randi() % 100
+		print("drop chance", drop.chance)
+		if roll <= chance:
 			drops.push_back(drop.item)
 
 	return drops

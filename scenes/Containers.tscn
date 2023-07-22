@@ -3,3 +3,5 @@
 [node name="Containers" type="Node"]
 
 [node name="Projectiles" type="Node" parent="."]
+
+[node name="DroppedItems" type="Node" parent="."]
