@@ -24,11 +24,11 @@ func _on_death():
 	var drops = drop_table.get_drops()
 
 	# Spawn drops
-	print(drops)
 	for drop in drops:
-		var inst = dropped_item_scene.instantiate(drop.item)
+		var inst = dropped_item_scene.instantiate()
 		inst.global_transform = global_transform
 
 		dropped_item_container.add_child(inst)
+		inst.setup(drop)
 
 	queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl8f27ly0yump"]
+[gd_scene load_steps=6 format=3 uid="uid://bl8f27ly0yump"]
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_vlndu"]
 [ext_resource type="Texture2D" uid="uid://b86krygsndgml" path="res://sprites/enemy/soul_eater.png" id="2_8fj4m"]
 [ext_resource type="Script" path="res://scripts/enemy/SoulEaterAI.gd" id="3_qg024"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="4_wu750"]
+[ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="5_j1o3o"]
 
 [node name="SoulEater" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.4499)
@@ -22,3 +23,6 @@ script = ExtResource("3_qg024")
 [node name="Health" type="Node3D" parent="."]
 script = ExtResource("4_wu750")
 max_health = 100
+
+[node name="DropTable" type="Node" parent="."]
+script = ExtResource("5_j1o3o")

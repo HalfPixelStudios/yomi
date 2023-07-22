@@ -8,7 +8,7 @@ var _item: Item
 
 # TODO add option for if item is auto-pickup or requires user to manually pickup
 
-func _init(item: Item):
+func setup(item: Item):
 	_item = item
 	sprite.texture = item.image_texture
 
