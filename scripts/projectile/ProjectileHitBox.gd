@@ -9,8 +9,8 @@ func _ready():
 
 func _area_entered(area):
 	if area is EnemyHitBox:
-		area.owner.on_hit.emit() # notify target that it was hit
+		area.hit() # notify target that it was hit
 		owner.on_hit.emit() # notify self that we hit something
-		print("collide enemy")
+		# print("collide enemy")
 
 

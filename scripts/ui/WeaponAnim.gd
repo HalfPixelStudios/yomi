@@ -10,7 +10,7 @@ func _ready():
 
 func _player_attack_start():
 	if anim.has_animation("AttackStart"):
-		print("attack start")
+		# print("attack start")
 		anim.play("AttackStart")
 
 func _player_attack(hold_time: float):

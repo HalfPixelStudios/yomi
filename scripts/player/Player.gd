@@ -38,7 +38,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hit():
-	print("player was hit!")
+	# print("player was hit!")
 	health.take(50)
 
 func camera_dir() -> Vector3:

@@ -17,6 +17,8 @@ var target: Player
 var teleport_timer: Timer
 
 func _ready():
+	super._ready()
+
 	target = globals.player_ref
 	
 	teleport_timer = Timer.new()
@@ -30,9 +32,9 @@ func _physics_process(delta):
 	pass
 
 func _teleport_timer_timeout():
-	print("timeout", global_position.distance_to(target.global_position))
+	# print("timeout", global_position.distance_to(target.global_position))
 	if global_position.distance_to(target.global_position) > seperation:
-		print("should teleport")
+		# print("should teleport")
 
 		# set position to just behind player facing direction
 

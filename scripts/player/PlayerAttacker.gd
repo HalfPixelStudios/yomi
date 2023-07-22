@@ -27,7 +27,7 @@ func _player_attack(hold_time: float):
 	if cur_weapon is MeleeWeapon:
 		for area in get_overlapping_areas():
 			if area is EnemyHitBox:
-				print("hit enemy")
+				# print("hit enemy")
 				area.hit()
 
 	elif cur_weapon is RangedWeapon:

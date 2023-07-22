@@ -12,6 +12,8 @@ class_name SkeletonEnemy extends Enemy
 var target: Node3D
 
 func _ready():
+	super._ready()
+
 	# TODO replace with proper aggro system
 	target = globals.player_ref
 
