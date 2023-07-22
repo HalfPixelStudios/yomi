@@ -12,6 +12,10 @@ radius = 1.0
 script = ExtResource("1_4sc1d")
 is_baby = false
 spawn_count = 2
+jump_freq = 2.0
+jump_height = 2.0
+airborn_time = 2.0
+speed = 10.0
 
 [node name="Sprite3D" parent="." index="3"]
 texture = ExtResource("2_mkfew")
