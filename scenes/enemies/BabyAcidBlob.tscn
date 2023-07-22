@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2toftmolsfuk"]
+
+[ext_resource type="PackedScene" uid="uid://xoarnixac0n3" path="res://scenes/enemies/AcidBlob.tscn" id="1_bwcma"]
+
+[node name="BabyAcidBlob" instance=ExtResource("1_bwcma")]
+is_baby = true
+
+[node name="Sprite3D" parent="." index="3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
