@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_vlndu"]
 [ext_resource type="Texture2D" uid="uid://b86krygsndgml" path="res://sprites/enemy/soul_eater.png" id="2_8fj4m"]
-[ext_resource type="Script" path="res://scripts/enemy/SoulEaterAI.gd" id="3_qg024"]
+[ext_resource type="Script" path="res://scripts/enemy/ai/SoulEaterAI.gd" id="3_qg024"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="4_wu750"]
 [ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="5_j1o3o"]
 

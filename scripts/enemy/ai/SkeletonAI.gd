@@ -5,7 +5,7 @@ class_name EnemyAI extends Node
 @export var speed: float = 10
 
 @onready var nav: NavigationAgent3D = $"../NavigationAgent3D"
-
+@onready var attack_box: EnemyAttacker = $"../AttackBox"
 @onready var globals = get_node("/root/Globals")
 
 # Can be null
@@ -14,6 +14,9 @@ var target: Node3D
 func _ready():
 	# TODO replace with proper aggro system
 	target = globals.player_ref
+
+	# current ai: attack player when in range
+	attack_box.area_entered.connect(_attack_box_area_entered)
 
 func _physics_process(delta):
 
@@ -31,3 +34,6 @@ func _physics_process(delta):
 	nav.set_velocity(owner.velocity)
 	owner.move_and_slide()
 
+func _attack_box_area_entered(area):
+	if area is PlayerHitBox:
+		attack_box.attack.emit()

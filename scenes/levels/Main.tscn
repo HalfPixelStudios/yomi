@@ -3,10 +3,10 @@
 [ext_resource type="MeshLibrary" uid="uid://dgavobj0h3bi6" path="res://resources/mesh_library/map.tres" id="1_uai0a"]
 [ext_resource type="PackedScene" uid="uid://3q770b1kuxp8" path="res://scenes/Player.tscn" id="2_cd71d"]
 [ext_resource type="PackedScene" uid="uid://bvaor884qy256" path="res://scenes/ui/HUD.tscn" id="3_ld2c7"]
-[ext_resource type="PackedScene" uid="uid://ypbtaee61i8x" path="res://scenes/Enemy.tscn" id="4_hk0sy"]
+[ext_resource type="PackedScene" uid="uid://ypbtaee61i8x" path="res://scenes/enemies/Skeleton.tscn" id="4_hk0sy"]
 [ext_resource type="Texture2D" uid="uid://ukuirf5pecxk" path="res://sprites/npc/wizard.png" id="5_shemq"]
 [ext_resource type="PackedScene" uid="uid://cwwk6iglfoxss" path="res://scenes/Interactable.tscn" id="6_y8fje"]
-[ext_resource type="PackedScene" uid="uid://bl8f27ly0yump" path="res://scenes/SoulEater.tscn" id="7_4st2b"]
+[ext_resource type="PackedScene" uid="uid://bl8f27ly0yump" path="res://scenes/enemies/SoulEater.tscn" id="7_4st2b"]
 
 [sub_resource type="Environment" id="Environment_ets2c"]
 tonemap_mode = 2

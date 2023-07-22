@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ypbtaee61i8x"]
+[gd_scene load_steps=15 format=3 uid="uid://ypbtaee61i8x"]
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
 [ext_resource type="Texture2D" uid="uid://dp2iged4hmter" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
@@ -6,17 +6,20 @@
 [ext_resource type="Script" path="res://scripts/enemy/EnemyHitBox.gd" id="4_m2tev"]
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
 [ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/HealthBar.tscn" id="6_vpdyl"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyAI.gd" id="7_cgn7q"]
+[ext_resource type="Script" path="res://scripts/enemy/ai/SkeletonAI.gd" id="7_72wxt"]
 [ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="8_f7scy"]
 [ext_resource type="Script" path="res://scripts/enemy/DropTableItem.gd" id="9_lpko6"]
 [ext_resource type="Resource" uid="uid://cfo31uu2tix1s" path="res://resources/items/GoldCoin.tres" id="10_5id34"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemyAttacker.gd" id="11_iry4q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nw2gg"]
 
-[node name="Enemy" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpeh1"]
+
+[node name="Skeleton" type="CharacterBody3D"]
 script = ExtResource("1_kpe5j")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -50,7 +53,7 @@ health_ref = NodePath("../Health")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AI" type="Node" parent="."]
-script = ExtResource("7_cgn7q")
+script = ExtResource("7_72wxt")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_nw2gg")
@@ -62,3 +65,12 @@ script = ExtResource("8_f7scy")
 script = ExtResource("9_lpko6")
 item = ExtResource("10_5id34")
 chance = 1.0
+
+[node name="AttackBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("11_iry4q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_fpeh1")

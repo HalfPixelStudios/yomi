@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=25 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_x2j2g"]
+[ext_resource type="Script" path="res://scripts/player/PlayerHitBox.gd" id="2_apxf4"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAttacker.gd" id="2_yleqv"]
 [ext_resource type="Shader" path="res://shaders/Invert.gdshader" id="3_5cfo2"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/Interactor.gd" id="6_tfag8"]
 [ext_resource type="Shader" path="res://shaders/Static.gdshader" id="7_lcpmb"]
 [ext_resource type="Script" path="res://scripts/player/ItemPickup.gd" id="12_v1xqk"]
+[ext_resource type="Script" path="res://scripts/component/Health.gd" id="14_ixdr3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rl12"]
 
@@ -57,6 +59,7 @@ mesh = SubResource("CapsuleMesh_5rl12")
 [node name="HitBox" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 11
+script = ExtResource("2_apxf4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_tq0lm")
@@ -97,7 +100,6 @@ grow_vertical = 2
 script = ExtResource("5_3k1ms")
 
 [node name="Vignette" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_vsbgp")
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,3 +139,7 @@ script = ExtResource("12_v1xqk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemPickup"]
 shape = SubResource("SphereShape3D_s2vns")
+
+[node name="Health" type="Node3D" parent="."]
+script = ExtResource("14_ixdr3")
+max_health = 100
