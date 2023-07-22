@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ypbtaee61i8x"]
+[gd_scene load_steps=14 format=3 uid="uid://ypbtaee61i8x"]
 
 [ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="1_kpe5j"]
 [ext_resource type="Texture2D" uid="uid://dp2iged4hmter" path="res://sprites/enemy/skeleton_shield.png" id="2_005y0"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://scripts/component/Health.gd" id="5_ct3pp"]
 [ext_resource type="PackedScene" uid="uid://c4s7hpcqplxat" path="res://scenes/HealthBar.tscn" id="6_vpdyl"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyAI.gd" id="7_cgn7q"]
+[ext_resource type="Script" path="res://scripts/enemy/DropTable.gd" id="8_f7scy"]
+[ext_resource type="Script" path="res://scripts/enemy/DropTableItem.gd" id="9_lpko6"]
+[ext_resource type="Resource" uid="uid://cfo31uu2tix1s" path="res://resources/items/GoldCoin.tres" id="10_5id34"]
+[ext_resource type="PackedScene" uid="uid://piqiqhsjt82h" path="res://resources/DroppedItem.tscn" id="11_84epb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qps4j"]
 height = 1.5
@@ -51,3 +55,13 @@ script = ExtResource("7_cgn7q")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_nw2gg")
+
+[node name="DropTable" type="Node" parent="."]
+script = ExtResource("8_f7scy")
+
+[node name="DropItem" type="Node" parent="DropTable"]
+script = ExtResource("9_lpko6")
+item = ExtResource("10_5id34")
+chance = 0.2
+
+[node name="DroppedItem" parent="." instance=ExtResource("11_84epb")]

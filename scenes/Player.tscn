@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://3q770b1kuxp8"]
+[gd_scene load_steps=21 format=3 uid="uid://3q770b1kuxp8"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_x2j2g"]
 [ext_resource type="Script" path="res://scripts/player/HeadBobber.gd" id="2_in2wx"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://scripts/player/HeadTilt.gd" id="4_q1osj"]
 [ext_resource type="Script" path="res://scripts/shaders/ChromAbbr.gd" id="5_3k1ms"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAbility.gd" id="5_kaw3u"]
+[ext_resource type="Shader" path="res://shaders/Vignette.gdshader" id="6_10g32"]
 [ext_resource type="Script" path="res://scripts/Interactor.gd" id="6_tfag8"]
+[ext_resource type="Shader" path="res://shaders/Static.gdshader" id="7_lcpmb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rl12"]
 
@@ -24,6 +26,17 @@ shader = ExtResource("3_5cfo2")
 shader = ExtResource("4_pwrct")
 shader_parameter/x_shift = 0.1
 shader_parameter/y_shift = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsbgp"]
+shader = ExtResource("6_10g32")
+shader_parameter/color = null
+shader_parameter/multiplier = 0.2
+shader_parameter/softness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pumn8"]
+shader = ExtResource("7_lcpmb")
+shader_parameter/intensity = 0.5
+shader_parameter/scale = 0.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3sxxh"]
 
@@ -70,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CA" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_675ku")
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +91,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_3k1ms")
+
+[node name="Vignette" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_vsbgp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Static" type="ColorRect" parent="CameraPivot/Camera/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_pumn8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HeadBobber" type="Node3D" parent="CameraPivot"]
 script = ExtResource("2_in2wx")
